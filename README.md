@@ -86,23 +86,23 @@ ensemble_cluster(dat, seed = 1, cluster_func = function(x) kmeans(x, centers=5),
 **Arguments**
 
 ```
-dat                     A matrix, data frame or tibble containing scRNA-seq expression values. By default, 
-                        genes are assumed to be represented by columns and samples are assumed to be 
-                        represented by rows (but see the argument genes_as_rows under the encode function). 
-                        Missing values are not supported, but may be replaced by 0s.
+dat                 A matrix, data frame or tibble containing scRNA-seq expression values. By default, 
+                    genes are assumed to be represented by columns and samples are assumed to be 
+                    represented by rows (but see the argument genes_as_rows under the encode function). 
+                    Missing values are not supported, but may be replaced by 0s.
 
-seed                    A single integer. Used to generate random seeds for the encode function and acts as 
-                        a random seed for stochastic clustering functions.
+seed                A single integer. Used to generate random seeds for the encode function and acts as 
+                    a random seed for stochastic clustering functions.
 
-cluster_func            Any function which will accept a matrix (rows as samples, columns as features) and 
-                        return a clustering object such as that returned by the kmeans function.
+cluster_func        Any function which will accept a matrix (rows as samples, columns as features) and 
+                    return a clustering object such as that returned by the kmeans function.
 
-enzemble_sizes          A vector of integers. Number of individual clusterings to be used in each ensemble 
-                        clustering returned.
+enzemble_sizes      A vector of integers. Number of individual clusterings to be used in each ensemble 
+                    clustering returned.
 
-cores                   Number of CPU cores to be used in parallel for individual and ensemble clustering.
+cores               Number of CPU cores to be used in parallel for individual and ensemble clustering.
 
-...                     Optional arguments to the encode function.
+...                 Optional arguments to the encode function.
 ```
 
 **Details**
