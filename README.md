@@ -19,21 +19,32 @@ Generates an encoded subspace of a single-cell RNA-seq expression matrix.
 **Usage**
 
 ```
-encode(dat, seed = 1, max_random_projection = 2048, encoded_dim = 16, hidden_dims = c(128), learning_rate = 0.001, batch_size = 32, epochs = 100, scale = FALSE, genes_as_rows = FALSE)
+encode(dat, seed = 1, max_random_projection = 2048, encoded_dim = 16, hidden_dims = c(128), 
+  learning_rate = 0.001, batch_size = 32, epochs = 100, scale = FALSE, genes_as_rows = FALSE)
 ```
 
 **Arguments**
 
 ```
-dat                     A matrix, data frame or tibble containing scRNA-seq expression values. By default, genes are assumed to be represented by columns and samples are assumed to be represented by rows (but see the argument genes_as_rows). Missing values are not supported, but may be replaced by 0s.
+dat                     A matrix, data frame or tibble containing scRNA-seq expression values. By default,
+                        genes are assumed to be represented by columns and samples are assumed to be 
+                        represented by rows (but see the argument genes_as_rows). Missing values are 
+                        not supported, but may be replaced by 0s.
 
-seed                    A single integer. Random seed for initial gene sampling. Currently a seed cannot be set to reproducibly determine the behaviour of the autoencoder artificial neural network. 
+seed                    A single integer. Random seed for initial gene sampling. Currently a seed cannot 
+                        be set to reproducibly determine the behaviour of the autoencoder artificial 
+                        neural network. 
 
-max_random_projection   A single integer. Determines the maximum number of genes to be initially sampled prior to autoencoder training. In practice the number of genes sampled is equal to this number or 80% of the genes present in the matrix (rounded up), whichever is smaller.
+max_random_projection   A single integer. Determines the maximum number of genes to be initially sampled 
+                        prior to autoencoder training. In practice the number of genes sampled is equal 
+                        to this number or 80% of the genes present in the matrix (rounded up), whichever 
+                        is smaller.
 
 encoded_dim             A single integer. The number of dimensions in which to encode the input data.
 
-hidden_dims             A vector of 1 or more integers, representing the number of nodes in each successive hidden layer of the encoder half of the autoencoder. Hidden layers in the decoder use these widths in reverse.
+hidden_dims             A vector of 1 or more integers, representing the number of nodes in each 
+                        successive hidden layer of the encoder half of the autoencoder. Hidden layers in 
+                        the decoder use these widths in reverse.
 
 learning_rate           Learning rate for training the artificial neural network.
 
@@ -43,7 +54,8 @@ epochs                  Number of training epochs.
 
 scale                   If TRUE, gene values are rescaled to a mean of 0 and a standard deviation of 1.
 
-genes_as_rows           If TRUE, rows in the expression matrix are assumed to represent genes and columns are assumed to represent cells.
+genes_as_rows           If TRUE, rows in the expression matrix are assumed to represent genes and columns 
+                        are assumed to represent cells.
 ```
 
 **Details**
@@ -67,19 +79,26 @@ Generates an ensemble clustering of a single-cell RNA-seq expression matrix.
 **Usage**
 
 ```
-ensemble_cluster(dat, seed = 1, cluster_func = function(x) kmeans(x, centers=5), ensemble_sizes = c(1, 5, 10, 20, 50), cores = 1, ...)
+ensemble_cluster(dat, seed = 1, cluster_func = function(x) kmeans(x, centers=5), 
+  ensemble_sizes = c(1, 5, 10, 20, 50), cores = 1, ...)
 ```
 
 **Arguments**
 
 ```
-dat                     A matrix, data frame or tibble containing scRNA-seq expression values. By default, genes are assumed to be represented by columns and samples are assumed to be represented by rows (but see the argument genes_as_rows under the encode function). Missing values are not supported, but may be replaced by 0s.
+dat                     A matrix, data frame or tibble containing scRNA-seq expression values. By default, 
+                        genes are assumed to be represented by columns and samples are assumed to be 
+                        represented by rows (but see the argument genes_as_rows under the encode function). 
+                        Missing values are not supported, but may be replaced by 0s.
 
-seed                    A single integer. Used to generate random seeds for the encode function and acts as a random seed for stochastic clustering functions.
+seed                    A single integer. Used to generate random seeds for the encode function and acts as 
+                        a random seed for stochastic clustering functions.
 
-cluster_func            Any function which will accept a matrix (rows as samples, columns as features) and return a clustering object such as that returned by the kmeans function.
+cluster_func            Any function which will accept a matrix (rows as samples, columns as features) and 
+                        return a clustering object such as that returned by the kmeans function.
 
-enzemble_sizes          A vector of integers. Number of individual clusterings to be used in each ensemble clustering returned.
+enzemble_sizes          A vector of integers. Number of individual clusterings to be used in each ensemble 
+                        clustering returned.
 
 cores                   Number of CPU cores to be used in parallel for individual and ensemble clustering.
 
