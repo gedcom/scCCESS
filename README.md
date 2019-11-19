@@ -32,16 +32,16 @@ dat                     A matrix, data frame or tibble containing scRNA-seq expr
                         represented by rows (but see the argument genes_as_rows). Missing values are 
                         not supported, but may be replaced by 0s.
 
-seed                    A single integer. Random seed for initial gene sampling. Currently a seed cannot 
+seed                    Random seed for initial gene sampling. Currently a seed cannot 
                         be set to reproducibly determine the behaviour of the autoencoder artificial 
                         neural network. 
 
-max_random_projection   A single integer. Determines the maximum number of genes to be initially sampled 
-                        prior to autoencoder training. In practice the number of genes sampled is equal 
-                        to this number or 80% of the genes present in the matrix (rounded up), whichever 
-                        is smaller.
+max_random_projection   Determines the maximum number of genes to be initially sampled prior to 
+                        autoencoder training. In practice the number of genes sampled is equal to this 
+                        number or 80% of the genes present in the matrix (rounded up), whichever is 
+                        smaller.
 
-encoded_dim             A single integer. The number of dimensions in which to encode the input data.
+encoded_dim             The number of features in the encoded data.
 
 hidden_dims             A vector of 1 or more integers, representing the number of nodes in each 
                         successive hidden layer of the encoder half of the autoencoder. Hidden layers in 
@@ -53,7 +53,7 @@ batch_size              Number of samples per training batch.
 
 epochs                  Number of training epochs.
 
-verbose                 A single integer determining the verbosity of the keras training function. 
+verbose                 Determines the verbosity of the keras training function. 
                         0: Silent.
                         1: Progress bar.
                         2: One line per epoch.
@@ -97,8 +97,8 @@ dat                 A matrix, data frame or tibble containing scRNA-seq expressi
                     represented by rows (but see the argument genes_as_rows under the encode function). 
                     Missing values are not supported, but may be replaced by 0s.
 
-seed                A single integer. Used to generate random seeds for the encode function and acts as 
-                    a random seed for stochastic clustering functions.
+seed                Used to generate random seeds for the encode function and acts as a random seed 
+                    for stochastic clustering functions.
 
 cluster_func        Any function which will accept a matrix (rows as samples, columns as features) and 
                     return a clustering object such as that returned by the kmeans function.
@@ -108,7 +108,7 @@ enzemble_sizes      A vector of integers. Number of individual clusterings to be
 
 cores               Number of CPU cores to be used in parallel for individual and ensemble clustering.
 
-...                 Optional arguments to the encode function.
+...                 Optional arguments to be passed to the encode function.
 ```
 
 **Details**
