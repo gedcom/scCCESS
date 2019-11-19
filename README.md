@@ -20,7 +20,8 @@ Generates an encoded subspace of a single-cell RNA-seq expression matrix.
 
 ```
 encode(dat, seed = 1, max_random_projection = 2048, encoded_dim = 16, hidden_dims = c(128), 
-  learning_rate = 0.001, batch_size = 32, epochs = 100, scale = FALSE, genes_as_rows = FALSE)
+  learning_rate = 0.001, batch_size = 32, epochs = 100, verbose = 1, scale = FALSE,
+  genes_as_rows = FALSE)
 ```
 
 **Arguments**
@@ -51,6 +52,11 @@ learning_rate           Learning rate for training the artificial neural network
 batch_size              Number of samples per training batch.
 
 epochs                  Number of training epochs.
+
+verbose                 A single integer determining the verbosity of the keras training function. 
+                        0: Silent.
+                        1: Progress bar.
+                        2: One line per epoch.
 
 scale                   If TRUE, gene values are rescaled to a mean of 0 and a standard deviation of 1.
 
