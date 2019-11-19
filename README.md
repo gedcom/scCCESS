@@ -95,7 +95,7 @@ ensemble_cluster(dat, seed = 1, cluster_func = function(x) kmeans(x, centers=5),
 dat                 A matrix, data frame or tibble containing scRNA-seq expression values. By default, 
                     genes are assumed to be represented by columns and samples are assumed to be 
                     represented by rows (but see the argument genes_as_rows under the encode function). 
-                    Missing values are not supported, but may be replaced by 0s.
+                    NA values are not supported, but may be replaced by 0s.
 
 seed                Used to generate random seeds for the encode function and acts as a random seed 
                     for stochastic clustering functions.
