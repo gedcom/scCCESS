@@ -29,8 +29,8 @@ encode(dat, seed = 1, max_random_projection = 2048, encoded_dim = 16, hidden_dim
 ```
 dat                     A matrix, data frame or tibble containing scRNA-seq expression values. By default,
                         genes are assumed to be represented by columns and samples are assumed to be 
-                        represented by rows (but see the argument genes_as_rows). Missing values are 
-                        not supported, but may be replaced by 0s.
+                        represented by rows (but see the argument genes_as_rows). NA values are not  
+                        supported, but may be replaced by 0s.
 
 seed                    Random seed for initial gene sampling. Currently a seed cannot 
                         be set to reproducibly determine the behaviour of the autoencoder artificial 
