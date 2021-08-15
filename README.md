@@ -1,7 +1,7 @@
 # scCCESS
 single-cell Consensus Clusters of Encoded Subspaces
 
-This repository stores original R implementation of scCCESS, as described in Thomas et al. Autoencoder-based cluster ensembles for single-cell RNA-seq data analysis. BMC Bioinformatics, 20, 660. https://doi.org/10.1186/s12859-019-3179-5. For the most updated version, please refer to https://github.com/PYangLab/scCCESS.
+This repository stores original R implementation of scCCESS, as described in Thomas et al. _Autoencoder-based cluster ensembles for single-cell RNA-seq data analysis_. ***BMC Bioinformatics***, 20, 660. https://doi.org/10.1186/s12859-019-3179-5. For the most updated version, please refer to https://github.com/PYangLab/scCCESS.
 
 Package required to use this script:
 - keras (available on CRAN) See https://keras.rstudio.com/reference/install_keras.html for more details - this package can be sped up substantially if the user has a supported nVIDIA GPU with CUDA installed, or a supported AMD GPU with ROCm and ROCm Tensorflow installed.
@@ -120,4 +120,5 @@ This function accepts a single scRNA-seq expression matrix. The encode function 
 A list of length len(ensemble_sizes) containing vectors of consensus clusters per cell. Each ensemble clustering is generated using a number of individual clusterings given by the corresponding element in the ensemble_sizes argument.
 
 **Reference**
-Geddes, T., Kim, T., Nan, L., Burchfield, J., Yang, J., Tao, D. & Yang, P. (2019) Autoencoder-based cluster ensembles for single-cell RNA-seq data analysis. BMC Bioinformatics, 20, 660. https://doi.org/10.1186/s12859-019-3179-5
+
+Geddes, T., Kim, T., Nan, L., Burchfield, J., Yang, J., Tao, D. & Yang, P. (2019) _Autoencoder-based cluster ensembles for single-cell RNA-seq data analysis_. ***BMC Bioinformatics***, 20, 660. https://doi.org/10.1186/s12859-019-3179-5
